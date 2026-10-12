@@ -37,7 +37,7 @@ const tabs = [
       ["Evidence rule", "QA verdicts require a transcript quote; rejected if the quote isn't in the transcript. No invented accuracy numbers."],
       ["Redaction", "Deterministic PII pass (card regex + Luhn, email, PH mobile) before any export. Exports stay redacted."],
       ["Score math", "Bank Support v2: weights sum to 100, green ≥85 / amber 70–84 / red <70, critical fail forces red, N/A scaled out."],
-      ["Build gates", "tsc -b + vite build must pass. Lint where configured. E2E only where a harness exists (QA Sentinel phase1-e2e)."],
+      ["Build gates", "tsc -b + vite build must pass. Lint where configured. E2E only where a harness exists (Linewise phase1-e2e)."],
     ],
   },
 ];

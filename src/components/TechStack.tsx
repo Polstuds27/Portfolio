@@ -26,6 +26,7 @@ import {
   SiGooglegemini,
   SiHtml5,
   SiCss,
+  SiOpencode,
 } from "react-icons/si";
 import { FileCode2, Server, Database, Zap } from "lucide-react";
 
@@ -97,6 +98,7 @@ export const techGroups: TechGroup[] = [
       { name: "AI Studio", Icon: SiGooglegemini },
       { name: "Groq", Icon: Zap },
       { name: "Cloudinary", Icon: SiCloudinary },
+      { name: "OpenCode", Icon: SiOpencode },
     ],
   },
   {

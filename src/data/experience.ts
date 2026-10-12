@@ -33,7 +33,7 @@ export const experiences: Experience[] = [
     endDate: "Oct 2026",
     description:
       "Ranked 6th out of 400+ teams with project output Linewise; received the Top 6 Tutorials Dojo Award.",
-    technologies: [],
+    technologies: ["React 19", "TypeScript", "Tailwind v4", "Whisper", "Ollama", "Dexie", "Express", "SQLite"],
   },
   {
     id: "salesforce-intern-2025",

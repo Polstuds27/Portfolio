@@ -21,11 +21,11 @@ const timeline = [
 ];
 
 const toolkit = [
-  { label: "Web", items: "JavaScript · TypeScript · React · Tailwind CSS · Vite" },
+  { label: "Web", items: "JavaScript · TypeScript · React · Tailwind CSS · Vite · HTML5 · CSS3" },
   { label: "Backend", items: "Python · Django REST Framework · Node.js · PHP · Java" },
   { label: "Mobile", items: "Java · XML (Android layouts)" },
   { label: "Databases", items: "PostgreSQL · MySQL · Firebase NoSQL" },
-  { label: "Tools & AI", items: "Git · GitHub · Figma · VS Code · Postman · XAMPP · JetBrains IDEs · Google AI Studio · Groq Studio · Tavily · Chrome MV3 · Cloudinary" },
+  { label: "Tools & AI", items: "Git · GitHub · Figma · VS Code · Postman · XAMPP · JetBrains IDEs · Google AI Studio · Groq Studio · Tavily · Chrome MV3 · Cloudinary · OpenCode" },
   { label: "Shipping", items: "Vercel · Render · Neon Postgres · Docker Compose" },
 ];
 
@@ -55,7 +55,7 @@ export function About() {
           <div className="mt-5 grid gap-3 text-[15.5px] leading-relaxed text-[var(--ink-2)]">
             <p>
               I turn messy workflows into practical software. Whether it’s a lab without ticketing, 
-              a DTR spreadsheet consuming hours, or a QA workflow that needs to stay offline, I start 
+              QA workflow without the cloud, or a mobile app with limited connectivity, I start 
               with the domain, choose the simplest stack that fits, and use AI-assisted development to 
               accelerate implementation—from first model to deployment.
             </p>

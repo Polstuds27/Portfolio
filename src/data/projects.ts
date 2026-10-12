@@ -8,7 +8,7 @@ export type Project = {
   role: string;
   stack: string[];
   status: string;
-  category: "full-stack" | "frontend" | "local-ai" | "systems" | "mobile";
+  category: "full-stack" | "frontend" | "local-ai" | "mobile";
   notes: string[];
   /** Repository / live links. Rendered only when present. */
   repos?: { label: string; url: string }[];
@@ -77,27 +77,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "workpulse-ai",
-    index: "04",
-    title: "WorkPulse AI",
-    tagline: "DTR workflow that reads pasted schedules",
-    problem:
-      "Daily time-record data entry is repetitive schedule wrangling that eats admin hours.",
-    solution:
-      "A workflow that accepts copy-pasted schedule formats and uses Gemini to structure them into an organized, storable daily time-record dataset.",
-    role: "Developer — scheduling workflow, AI structuring pass",
-    stack: ["React", "Vite", "Gemini API", "DTR domain"],
-    status: "Working prototype",
-    category: "systems",
-    notes: [
-      "Paste-first input instead of manual table entry",
-      "AI pass normalizes messy schedule text into records",
-      "Aimed at offices drowning in DTR spreadsheets",
-    ],
-  },
-  {
     slug: "seekict",
-    index: "05",
+    index: "04",
     title: "SeekICT",
     tagline: "Auth-gated ICT opportunities app",
     problem:
@@ -116,7 +97,7 @@ export const projects: Project[] = [
   },
   {
     slug: "cafe-collective",
-    index: "06",
+    index: "05",
     title: "CafeCollective",
     tagline: "Coffee-shop discovery for the Philippines",
     problem:
@@ -126,7 +107,7 @@ export const projects: Project[] = [
     role: "Contributor — discovery views, place mapping",
     stack: ["Next.js", "TypeScript", "OpenStreetMap", "Supabase"],
     status: "Community build",
-    category: "frontend",
+    category: "full-stack",
     notes: [
       "OpenStreetMap-backed nearby search",
       "Recommended-place to card mapping layer",
@@ -135,7 +116,7 @@ export const projects: Project[] = [
   },
   {
     slug: "safe-bite",
-    index: "07",
+    index: "06",
     title: "Safe Bite",
     tagline: "Allergen-aware food identification app",
     problem:
@@ -154,7 +135,7 @@ export const projects: Project[] = [
   },
   {
     slug: "quotely",
-    index: "08",
+    index: "07",
     title: "Quotely",
     tagline: "One good quote on demand",
     problem:
@@ -173,28 +154,8 @@ export const projects: Project[] = [
     repos: [{ label: "GitHub — Quotely", url: "https://github.com/Polstuds27/Quotely" }],
   },
   {
-    slug: "flashquiz",
-    index: "09",
-    title: "FlashQuiz",
-    tagline: "PDF-to-flashcards study pipeline",
-    problem:
-      "Turning lecture PDFs into study material is manual copy-paste work — upload should end with a ready quiz.",
-    solution:
-      "Upload a PDF and the Express API rasterizes pages with poppler, OCRs them with Tesseract, summarizes with Gemini 2.5 Flash-Lite, then generates 10 multiple-choice questions as JSON with Gemini 2.5 Flash, persisted per user in MySQL behind email register/login; a React client serves the saved decks.",
-    role: "Full-stack developer — OCR pipeline, Gemini passes, Express + MySQL API, React client",
-    stack: ["React", "Express", "MySQL", "Gemini", "Tesseract OCR", "Multer"],
-    status: "Working prototype",
-    category: "full-stack",
-    notes: [
-      "Two-model Gemini chain: Flash-Lite summarizes, Flash writes the quiz JSON",
-      "Per-user deck persistence in MySQL with email auth",
-      "OCR text cleanup pass before anything reaches the models",
-    ],
-    repos: [{ label: "GitHub — FlashQuiz", url: "https://github.com/Polstuds27/flashquiz-mobile" }],
-  },
-  {
     slug: "pocketllm",
-    index: "10",
+    index: "08",
     title: "PocketLLM",
     tagline: "Browser side-panel LLM chat — extension + backend",
     problem:
@@ -223,5 +184,4 @@ export const categories = [
   { value: "frontend", label: "Frontend" },
   { value: "mobile", label: "Mobile" },
   { value: "local-ai", label: "Local AI" },
-  { value: "systems", label: "Systems" },
 ] as const;

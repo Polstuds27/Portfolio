@@ -13,7 +13,7 @@ const TabsList = React.forwardRef<
     role="tablist"
     aria-label="Filter projects"
     className={cn(
-      "grid w-full grid-cols-2 gap-0.5 rounded-2xl bg-[var(--elevated)] p-1 sm:inline-flex sm:w-auto sm:flex-wrap sm:rounded-full",
+      "flex w-full flex-nowrap gap-0.5 overflow-x-auto rounded-full bg-[var(--elevated)] p-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-sm:[justify-content:safe_center] sm:inline-flex sm:w-auto sm:flex-wrap sm:overflow-visible",
       className
     )}
     {...props}
@@ -28,7 +28,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium text-[var(--muted)] cursor-pointer transition-colors duration-150 data-[state=active]:bg-[var(--card)] data-[state=active]:text-[var(--ink)] data-[state=active]:shadow-sm data-[state=inactive]:hover:text-[var(--ink)]",
+      "inline-flex shrink-0 items-center justify-center rounded-full px-4 py-2 text-sm font-medium text-[var(--muted)] cursor-pointer transition-colors duration-150 data-[state=active]:bg-[var(--card)] data-[state=active]:text-[var(--ink)] data-[state=active]:shadow-sm data-[state=inactive]:hover:text-[var(--ink)]",
       className
     )}
     {...props}
