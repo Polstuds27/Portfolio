@@ -85,7 +85,7 @@ export const projects: Project[] = [
       "Students and staff needed a gated space for ICT-related opportunities with verified identities.",
     solution:
       "React 19 + Firebase web app with email + 6-digit OTP verification, role-aware navigation and admin sidebar, charts and scheduling surfaces, styled with Tailwind and DaisyUI.",
-    role: "Developer — auth flows, role-aware UI",
+    role: "Backend Developer — auth flows, role-aware UI",
     stack: ["React 19", "Firebase", "React Router", "TailwindCSS", "DaisyUI", "recharts"],
     status: "Academic build",
     category: "full-stack",
