@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* ——— Carbon & Coral tokens · Light ——— */
+  --paper: #f8f7f5;
+  --paper-2: #ffffff;
+  --card: #ffffff;
+  --elevated: #f0edea;
+  --ink: #25211f;
+  --ink-2: #625a56;
+  --muted: #827873;
+  --line: rgba(45, 35, 30, 0.2);
+  --line-soft: rgba(45, 35, 30, 0.12);
+  --accent: #b84e38;
+  --accent-hover: #993d2c;
+  --accent-soft: rgba(184, 78, 56, 0.1);
+  --accent-ink: #ffffff;
+  --focus: #b84e38;
+
+  --radius-sm: 10px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(37, 33, 31, 0.05);
+  --shadow: 0 1px 3px rgba(37, 33, 31, 0.06), 0 16px 40px -24px rgba(37, 33, 31, 0.22);
+  --shadow-lg: 0 2px 6px rgba(37, 33, 31, 0.06), 0 28px 64px -28px rgba(37, 33, 31, 0.3);
+
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Segoe UI", Inter, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Inter, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.dark {
+  /* ——— Carbon & Coral tokens · Dark ——— */
+  --paper: #181818;
+  --paper-2: #222222;
+  --card: #222222;
+  --elevated: #2b2b2b;
+  --ink: #f7f5f3;
+  --ink-2: #c6c1be;
+  --muted: #96918e;
+  --line: rgba(255, 255, 255, 0.16);
+  --line-soft: rgba(255, 255, 255, 0.1);
+  --accent: #ff9b83;
+  --accent-hover: #ffb09c;
+  --accent-soft: rgba(255, 155, 131, 0.12);
+  --accent-ink: #2e1b15;
+  --focus: #ff9b83;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 20px 48px -24px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 2px 8px rgba(0, 0, 0, 0.4), 0 32px 72px -28px rgba(0, 0, 0, 0.65);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  border-color: var(--line);
+}
+
+/* Warm ambient backdrops — a single diffuse glow placed so it reaches
+   zero alpha before any section edge, leaving no cut lines */
+.hero-wash {
+  background:
+    radial-gradient(90% 70% at 50% 28%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 100%);
+}
+.dark .hero-wash {
+  background:
+    radial-gradient(90% 70% at 50% 28%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 100%);
+}
+
+/* Soft top-glow for elevated cards — sized to the card so it dissolves at the edges */
+.card-wash {
+  background:
+    radial-gradient(100% 75% at 50% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 100%);
+}
+.dark .card-wash {
+  background:
+    radial-gradient(100% 75% at 50% 0%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 100%);
+}
+
+/* Layered surfaces */
+.surface {
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.surface-flat {
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+
+.surface-elevated {
+  background: var(--elevated);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+
+/* Legacy class names kept for compatibility, retuned to Apple restraint */
+.brutal,
+.brutal-accent {
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.brutal-sm,
+.brutal-flat {
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Quiet press feedback */
+.pressable {
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+.pressable:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+  border-color: var(--line);
+}
+.pressable:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pressable,
+  .pressable:hover,
+  .pressable:active {
+    transform: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+:where(a, button, [role="tab"], input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Typography */
+.display-hero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.032em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.display-section {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.024em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+/* Scroll-reveal — subtle fade + rise, fired once by IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.hairline {
+  border-top: 1px solid var(--line-soft);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
