@@ -87,7 +87,7 @@ export function HomePage() {
           <Reveal>
           <PreviewCard
             icon={Briefcase}
-            kicker="Work history adn events"
+            kicker="Work history and events"
             title="Experience"
             emptyText="No experience entries listed yet. Roles and internships will appear here once available."
             preview={
