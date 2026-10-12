@@ -12,7 +12,7 @@ export function Experience() {
   return (
     <section aria-labelledby="experience-heading" className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-20">
       <SectionHeading
-        kicker="Work history"
+        kicker="Work history and events"
         title="Experience"
         lede="Roles, internships, hackathons, and sustained project work."
       />
