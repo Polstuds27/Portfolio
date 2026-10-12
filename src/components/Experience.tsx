@@ -14,7 +14,7 @@ export function Experience() {
       <SectionHeading
         kicker="Work history"
         title="Experience"
-        lede="Roles, internships, and sustained project work. Only verified entries appear here."
+        lede="Roles, internships, hackathons, and sustained project work."
       />
 
       {experiences.length === 0 ? (
