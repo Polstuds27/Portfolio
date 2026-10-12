@@ -93,6 +93,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   border-color: var(--line);
+  /* clip (not hidden) so a single wide child can never cause
+     horizontal page scroll, while sticky positioning keeps working */
+  overflow-x: clip;
 }
 
 /* Warm ambient backdrops — a single diffuse glow placed so it reaches

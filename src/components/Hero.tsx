@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { TechStackGrid } from "@/components/TechStack";
 
 export const LINKEDIN = "https://www.linkedin.com/in/paul-adrianne-mojal-56a948294/";
-export const PHOTO_URL = `${import.meta.env.BASE_URL}avatar.jpg`;
+export const PHOTO_URL = `${import.meta.env.BASE_URL}avatar.png`;
 
 const capabilities = [
   { label: "Role", value: "Full-stack · Backend focus" },
@@ -91,7 +91,7 @@ export function Hero() {
               <img
                 src={PHOTO_URL}
                 alt="Paul Adrianne Mojal"
-                className="size-12 shrink-0 rounded-full border border-[var(--line-soft)] bg-[var(--elevated)] object-cover"
+                className="size-16 shrink-0 rounded-full border border-[var(--line-soft)] bg-[var(--elevated)] object-cover"
               />
               <div className="min-w-0">
                 <p className="truncate text-[16px] font-semibold tracking-[-0.01em]">
