@@ -9,7 +9,7 @@ export const PHOTO_URL = `${import.meta.env.BASE_URL}avatar.png`;
 const capabilities = [
   { label: "Role", value: "Full-stack · Backend focus" },
   { label: "Focus", value: "REST APIs, sync, local AI" },
-  { label: "School", value: "BulSU — CICT" },
+  { label: "School", value: "BulSU — BSIT" },
   { label: "Now", value: "FinTrack PWA + Linewise" },
 ];
 
@@ -24,7 +24,7 @@ export function Hero() {
               <span aria-hidden className="size-2 rounded-full bg-[var(--accent)]" />
               Open to internships &amp; junior roles
             </p>
-            <p className="eyebrow mt-5">Paul Adrianne Mojal — Bulacan State University, CICT</p>
+            <p className="eyebrow mt-5">Paul Adrianne Mojal — Bulacan State University, BSIT</p>
             <h1
               id="hero-title"
               className="display-hero mt-4 text-[44px] leading-[1.04] sm:text-[64px] lg:text-[68px]"
