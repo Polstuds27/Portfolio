@@ -42,7 +42,21 @@ export function useTheme() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  const toggle = useCallback(() => setTheme((t) => (t === "dark" ? "light" : "dark")), []);
+  const toggle = useCallback(() => {
+    // Briefly ease colors so the swap cross-fades instead of flashing.
+    // Skipped entirely under prefers-reduced-motion.
+    if (
+      typeof window !== "undefined" &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      document.documentElement.classList.add("theme-transition");
+      window.setTimeout(
+        () => document.documentElement.classList.remove("theme-transition"),
+        400
+      );
+    }
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  }, []);
 
   return { theme, toggle };
 }

@@ -155,6 +155,15 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
+/* Brief cross-fade applied to <html> while the theme toggles,
+   so light/dark swaps ease instead of flashing */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 350ms ease, color 350ms ease, border-color 350ms ease, box-shadow 350ms ease, fill 350ms ease, stroke 350ms ease !important;
+}
+
 /* Quiet press feedback */
 .pressable {
   transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background-color 160ms ease;
