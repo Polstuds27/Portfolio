@@ -6,7 +6,7 @@ const timeline = [
   {
     when: "Now",
     title: "Backend + local-AI builds",
-    body: "FinTrack (offline-first finance PWA: React + Django + Postgres sync), Linewise (offline-first AI call QA, 6th place at the AppBuildersPH hackathon), and Safe Bite (mobile backend on Firebase with barcode-based allergen checking).",
+    body: "Trove (offline-first finance PWA: React + Django + Postgres sync), Linewise (offline-first AI call QA, 6th place at the AppBuildersPH hackathon), and Safe Bite (mobile backend on Firebase with barcode-based allergen checking).",
   },
   {
     when: "2025 — 2026",

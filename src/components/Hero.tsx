@@ -10,7 +10,7 @@ const capabilities = [
   { label: "Role", value: "Full-stack · Backend focus" },
   { label: "Focus", value: "REST APIs, sync, local AI" },
   { label: "School", value: "BulSU — BSIT" },
-  { label: "Now", value: "FinTrack PWA + Linewise" },
+  { label: "Now", value: "Trove PWA + Linewise" },
 ];
 
 export function Hero() {

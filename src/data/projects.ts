@@ -16,12 +16,12 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "fintrack",
+    slug: "Trove",
     index: "01",
-    title: "FinTrack",
+    title: "Trove",
     tagline: "Offline-first personal finance PWA",
     problem:
-      "Personal finance tools assume always-online use. FinTrack needed to work offline first, then sync reliably with a hosted backend.",
+      "Personal finance tools assume always-online use. Trove needed to work offline first, then sync reliably with a hosted backend.",
     solution:
       "Split architecture: React + TypeScript + Vite PWA in web/ deployed to Vercel, Django + DRF API in api/ deployed to Render, shared sync-protocol contract in shared/, local Postgres via Docker Compose and Neon Postgres in production.",
     role: "Full-stack developer — sync contract, PWA shell, API integration",
