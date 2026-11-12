@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { LINKEDIN, PHOTO_URL } from "@/components/Hero";
 import { DynamicIsland } from "@/components/ui/dynamic-island";
 import { GlassNavbar, type NavItem } from "@/components/ui/glass-navbar";
+import { scrollToContact } from "@/lib/scroll-to-contact";
 
 const links: NavItem[] = [
   { id: "/", href: "#/", label: "Home" },
@@ -9,7 +10,15 @@ const links: NavItem[] = [
   { id: "/about", href: "#/about", label: "About" },
   { id: "/experience", href: "#/experience", label: "Experience" },
   { id: "/certifications", href: "#/certifications", label: "Certifications" },
-  { id: "/contact", href: "#/contact", label: "Contact" },
+  {
+    id: "contact",
+    href: "#/contact",
+    label: "Contact",
+    onClick: (e) => {
+      e.preventDefault();
+      scrollToContact();
+    },
+  },
 ];
 
 export function SiteHeader() {

@@ -3,16 +3,13 @@ import { ArrowUp, Check, Copy, FileText, Github, Linkedin, Mail } from "lucide-r
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
 import { LINKEDIN } from "@/components/Hero";
-import { EMAIL, GITHUB, PHONE, RESUME_FILE } from "@/components/Contact";
-
-const detailLink = "underline decoration-[var(--line)] underline-offset-4 transition-colors hover:decoration-[var(--accent)]";
+import { EMAIL, GITHUB, RESUME_FILE } from "@/components/Contact";
 
 const pill =
   "inline-flex items-center gap-2 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-medium transition-colors hover:bg-[var(--card)]";
 
-/** Closing contact block for the home page, and the whole Contact page. Doubles as the footer on both. */
-export function ContactClosing({ page = false }: { page?: boolean }) {
-  const Heading = page ? "h1" : "h2";
+/** Closing contact block. Rendered by SiteFooter on every page; the nav's "Contact" scrolls to #contact. */
+export function ContactClosing() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = async () => {
@@ -33,28 +30,13 @@ export function ContactClosing({ page = false }: { page?: boolean }) {
     <section
       id="contact"
       aria-labelledby="contact-closing-heading"
-      className={
-        page
-          ? "relative isolate flex flex-1 flex-col bg-[var(--paper)]"
-          : "relative isolate border-t border-[var(--line-soft)] bg-[var(--elevated)]/50"
-      }
+      className="relative isolate border-t border-[var(--line-soft)] bg-[var(--elevated)]/50"
     >
-      <div
-        className={`mx-auto w-full max-w-6xl px-5 sm:px-8 ${
-          page ? "flex flex-1 flex-col pb-8 pt-12 sm:pt-16" : "py-16 sm:py-20"
-        }`}
-      >
-        <div
-          className={
-            page
-              ? "grid flex-1 content-center gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-center lg:gap-16"
-              : ""
-          }
-        >
+      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <Reveal>
-          <Heading id="contact-closing-heading" className="display-section max-w-3xl text-[34px] sm:text-[48px]">
+          <h2 id="contact-closing-heading" className="display-section max-w-3xl text-[34px] sm:text-[48px]">
             Have a role or a messy workflow? Let's talk.
-          </Heading>
+          </h2>
           <p className="mt-4 max-w-xl text-[17px] leading-relaxed text-[var(--ink-2)]">
             Email is the fastest way to reach me. I usually reply within a day or two.
           </p>
@@ -98,31 +80,6 @@ export function ContactClosing({ page = false }: { page?: boolean }) {
             </a>
           </div>
         </Reveal>
-
-        {page && (
-          <Reveal delay={80}>
-            <dl className="surface divide-y divide-[var(--line-soft)] px-6 sm:px-7">
-              {[
-                ["Email", <a href={`mailto:${EMAIL}`} className={detailLink}>{EMAIL}</a>],
-                ["Phone", <a href={`tel:${PHONE.replace(/\s/g, "")}`} className={detailLink}>{PHONE}</a>],
-                ["Based in", "Bocaue, Bulacan, PH"],
-                ["Reply time", "Within a day or two"],
-                [
-                  "GitHub",
-                  <a href={GITHUB} target="_blank" rel="noopener noreferrer" className={detailLink}>
-                    Polstuds27<span className="sr-only"> (opens in a new tab)</span>
-                  </a>,
-                ],
-              ].map(([label, value]) => (
-                <div key={label as string} className="grid gap-1 py-4 sm:grid-cols-[110px_minmax(0,1fr)] sm:gap-4">
-                  <dt className="text-[13px] font-medium text-[var(--muted)] sm:pt-0.5">{label}</dt>
-                  <dd className="min-w-0 break-words text-[15px] font-medium text-[var(--ink)]">{value}</dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-        )}
-        </div>
 
         <div className="mt-14 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line-soft)] pt-5 text-[13px] text-[var(--muted)]">
           <span>© {new Date().getFullYear()} Paul Adrianne Mojal · Bocaue, Bulacan, PH</span>

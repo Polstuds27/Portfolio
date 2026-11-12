@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SparklesCore } from "@/components/ui/sparkles-core";
+import { scrollToContact } from "@/lib/scroll-to-contact";
 
 export const LINKEDIN = "https://www.linkedin.com/in/paul-adrianne-mojal-56a948294/";
 export const PHOTO_URL = `${import.meta.env.BASE_URL}avatar.png`;
@@ -48,8 +49,8 @@ export function Hero() {
                   View projects <ArrowRight aria-hidden />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/contact">Get in touch</Link>
+              <Button variant="outline" size="lg" onClick={scrollToContact}>
+                Get in touch
               </Button>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[15px]">

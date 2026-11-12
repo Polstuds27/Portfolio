@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HomePage } from "@/pages/Home";
@@ -7,15 +7,20 @@ import { ProjectsPage } from "@/pages/ProjectsPage";
 import { AboutPage } from "@/pages/AboutPage";
 import { ExperiencePage } from "@/pages/ExperiencePage";
 import { CertificationsPage } from "@/pages/CertificationsPage";
-import { ContactPage } from "@/pages/ContactPage";
 import { ProjectDetailPage } from "@/pages/ProjectDetailPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
+import { scrollToContact } from "@/lib/scroll-to-contact";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation();
   useEffect(() => {
+    // The old /contact route redirects home with { scrollTo: "contact" }.
+    if ((state as { scrollTo?: string } | null)?.scrollTo === "contact") {
+      requestAnimationFrame(scrollToContact);
+      return;
+    }
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-  }, [pathname]);
+  }, [pathname, state]);
   return null;
 }
 
@@ -29,7 +34,7 @@ function Shell() {
         Skip to content
       </a>
       <SiteHeader />
-      <main id="main" className="flex flex-1 flex-col">
+      <main id="main" className="flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
@@ -37,7 +42,8 @@ function Shell() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/certifications" element={<CertificationsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          {/* Contact lives in the footer of every page now. */}
+          <Route path="/contact" element={<Navigate to="/" replace state={{ scrollTo: "contact" }} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
