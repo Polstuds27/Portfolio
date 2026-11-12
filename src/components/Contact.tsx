@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
 import { LINKEDIN } from "@/components/Hero";
 
-const EMAIL = "paul.mojal@gmail.com";
-const GITHUB = "https://github.com/Polstuds27";
-const PHONE = "+63 981 680 7108";
+export const EMAIL = "paul.mojal@gmail.com";
+export const GITHUB = "https://github.com/Polstuds27";
+/** TODO: Paul, drop your résumé PDF in public/ and set this (e.g. "resume.pdf") to turn on the download button. */
+export const RESUME_FILE = "";
+export const PHONE = "+63 981 680 7108";
 
 export function Contact() {
   const [copied, setCopied] = useState(false);

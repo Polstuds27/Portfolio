@@ -1,9 +1,6 @@
-import { Contact } from "@/components/Contact";
+import { ContactClosing } from "@/components/ContactClosing";
 
+/** Same block as the home page's closing contact section; it doubles as the footer here too. */
 export function ContactPage() {
-  return (
-    <div className="pb-6">
-      <Contact />
-    </div>
-  );
+  return <ContactClosing page />;
 }

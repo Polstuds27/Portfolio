@@ -18,6 +18,8 @@ export type Experience = {
   description: string;
   /** Relevant technologies or skills. */
   technologies: string[];
+  /** Optional internal or external link shown under the description. */
+  link?: { label: string; href: string; external?: boolean };
 };
 
 /**
@@ -26,25 +28,26 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     id: "appbuildersph-2026",
-    role: "Hackathon Finalist — Top 6",
-    organization: "AppBuildersPH",
+    role: "Top 6 of 400+ teams",
+    organization: "AppBuildersPH Hackathon",
     employmentType: "Hackathon",
     startDate: "Oct 2026",
     endDate: "Oct 2026",
     description:
-      "Ranked 6th out of 400+ teams with project output Linewise; received the Top 6 Tutorials Dojo Award.",
+      "Built Linewise, an offline-first AI call QA tool, and received the Tutorials Dojo Top 6 Award.",
     technologies: ["React 19", "TypeScript", "Tailwind v4", "Whisper", "Ollama", "Dexie", "Express", "SQLite"],
+    link: { label: "Linewise case study", href: "/projects/linewise" },
   },
   {
     id: "salesforce-intern-2025",
-    role: "Salesforce Intern",
-    organization: "Salesforce",
+    role: "Virtual Intern",
+    organization: "Salesforce Supported Virtual Internship (SmartBridge)",
     employmentType: "Internship",
     startDate: "Sep 2025",
     endDate: "Nov 2025",
     location: "Bulacan, Central Luzon, Philippines · Remote",
-    description:
-      "Eight-week Salesforce-supported virtual internship program (via SmartBridge Educational Services): platform fundamentals, data and security modeling, automation, Apex, Visualforce, Lightning Web Components, and Agentforce.",
+    // TODO: Paul, replace with what you built or completed (e.g. "Built a … using Apex and LWC; completed N Trailhead modules").
+    description: "Eight-week virtual program on the Salesforce platform, working with Apex and Lightning Web Components.",
     technologies: ["Apex", "Visualforce", "Lightning Web Components", "Agentforce"],
   },
 ];

@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { LINKEDIN } from "@/components/Hero";
 
 export function SiteFooter() {
+  const { pathname } = useLocation();
+  // On Home and Contact the closing contact block doubles as the footer.
+  if (pathname === "/" || pathname === "/contact") return null;
   return (
     <footer className="border-t border-[var(--line-soft)] bg-[var(--elevated)]/50">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
@@ -48,7 +51,6 @@ export function SiteFooter() {
               ["/about", "About"],
               ["/experience", "Experience"],
               ["/certifications", "Certifications"],
-              ["/engineering", "Journal"],
               ["/contact", "Contact"],
             ].map(([to, label]) => (
               <li key={to}>

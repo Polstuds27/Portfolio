@@ -1,9 +1,11 @@
-import { Experience } from "@/components/Experience";
+import { HomeSection } from "@/components/HomeSection";
+import { ExperienceTimeline } from "@/components/ExperienceRecognition";
 
+/** Same timeline as the home page's "Experience & recognition" section. */
 export function ExperiencePage() {
   return (
-    <div className="pb-6">
-      <Experience />
-    </div>
+    <HomeSection id="experience" as="h1" title="Experience">
+      <ExperienceTimeline />
+    </HomeSection>
   );
 }

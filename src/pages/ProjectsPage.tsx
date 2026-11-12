@@ -1,9 +1,11 @@
-import { ProjectShowcase } from "@/components/Projects";
+import { MoreBuilds, SelectedWork } from "@/components/SelectedWork";
 
+/** Same showcase as the home page, followed by every other build. */
 export function ProjectsPage() {
   return (
-    <div className="pb-6">
-      <ProjectShowcase />
-    </div>
+    <>
+      <SelectedWork page />
+      <MoreBuilds />
+    </>
   );
 }

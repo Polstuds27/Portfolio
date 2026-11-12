@@ -1,6 +1,8 @@
 import { GraduationCap, Code2, Database, Globe } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { TechExplorer } from "@/components/TechExplorer";
+import { AwayFromKeyboard } from "@/components/AwayFromKeyboard";
 
 const timeline = [
   {
@@ -20,15 +22,6 @@ const timeline = [
   },
 ];
 
-const toolkit = [
-  { label: "Web", items: "JavaScript · TypeScript · React · Tailwind CSS · Vite · HTML5 · CSS3" },
-  { label: "Backend", items: "Python · Django REST Framework · Node.js · PHP · Java" },
-  { label: "Mobile", items: "Java · XML (Android layouts)" },
-  { label: "Databases", items: "PostgreSQL · MySQL · Firebase NoSQL" },
-  { label: "Tools & AI", items: "Git · GitHub · Figma · VS Code · Postman · XAMPP · JetBrains IDEs · Google AI Studio · Groq Studio · Tavily · Chrome MV3 · Cloudinary · OpenCode" },
-  { label: "Shipping", items: "Vercel · Render · Neon Postgres · Docker Compose" },
-];
-
 const strengths = [
   { icon: Code2, title: "Backend APIs", body: "Django REST Framework with JWT auth, throttling, and WebSocket realtime. Optimized Postgres queries, MySQL, and Firebase NoSQL sync." },
   { icon: Database, title: "Frontend & mobile", body: "React 19, TypeScript, Vite, Tailwind CSS. Java + XML on mobile with Firebase-backed sync." },
@@ -46,7 +39,9 @@ export function About() {
       />
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-14">
-        <div className="surface h-fit p-7 sm:p-8">
+        {/* Left: philosophy + tech stack. Right: timeline + strengths. */}
+        <div className="grid content-start gap-10">
+        <div className="surface p-7 sm:p-8">
           <p className="text-[13px] font-medium text-[var(--muted)]">Working philosophy</p>
           <blockquote className="mt-3 font-display text-[24px] font-semibold leading-[1.25] tracking-[-0.02em]">
             “Offline first. Evidence over claims. Ship the smallest thing that survives contact with
@@ -64,14 +59,13 @@ export function About() {
               see the Linewise scorecard rules for how seriously I take that.
             </p>
           </div>
-          <dl className="mt-6 border-t border-[var(--line-soft)]">
-            {toolkit.map((t) => (
-              <div key={t.label} className="grid gap-1 border-b border-[var(--line-soft)] py-3.5 sm:grid-cols-[140px_1fr] sm:gap-4">
-                <dt className="text-sm font-semibold">{t.label}</dt>
-                <dd className="text-sm leading-relaxed text-[var(--ink-2)]">{t.items}</dd>
-              </div>
-            ))}
-          </dl>
+        </div>
+
+        <Reveal>
+          <h3 className="text-[19px] font-semibold tracking-[-0.015em] text-[var(--ink)]">Tech stack</h3>
+          <p className="mb-3 mt-1 text-[13px] text-[var(--muted)]">Select a technology to see where I've used it.</p>
+          <TechExplorer />
+        </Reveal>
         </div>
 
         <div>
@@ -103,6 +97,12 @@ export function About() {
           </div>
         </div>
       </div>
+
+      <Reveal className="mt-14 border-t border-[var(--line-soft)] pt-10">
+        <div className="max-w-[880px]">
+          <AwayFromKeyboard prominent />
+        </div>
+      </Reveal>
     </section>
   );
 }

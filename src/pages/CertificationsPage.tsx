@@ -1,9 +1,14 @@
-import { Certifications } from "@/components/Certifications";
+import { HomeSection } from "@/components/HomeSection";
+import { Reveal } from "@/components/Reveal";
+import { CertificationList } from "@/components/ExperienceRecognition";
 
+/** Same compact list as the home page, showing every certification. */
 export function CertificationsPage() {
   return (
-    <div className="pb-6">
-      <Certifications />
-    </div>
+    <HomeSection id="certifications" as="h1" title="Certifications">
+      <Reveal className="border-t border-[var(--line-soft)]">
+        <CertificationList />
+      </Reveal>
+    </HomeSection>
   );
 }

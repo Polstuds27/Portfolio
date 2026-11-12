@@ -7,11 +7,9 @@ import { ProjectsPage } from "@/pages/ProjectsPage";
 import { AboutPage } from "@/pages/AboutPage";
 import { ExperiencePage } from "@/pages/ExperiencePage";
 import { CertificationsPage } from "@/pages/CertificationsPage";
-import { EngineeringPage } from "@/pages/EngineeringPage";
 import { ContactPage } from "@/pages/ContactPage";
 import { ProjectDetailPage } from "@/pages/ProjectDetailPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
-import { useTheme } from "@/hooks/useTheme";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -22,7 +20,6 @@ function ScrollToTop() {
 }
 
 function Shell() {
-  const { theme, toggle } = useTheme();
   return (
     <div className="min-h-dvh flex flex-col bg-[var(--paper)] text-[var(--ink)]">
       <a
@@ -31,8 +28,8 @@ function Shell() {
       >
         Skip to content
       </a>
-      <SiteHeader theme={theme} onToggleTheme={toggle} />
-      <main id="main" className="flex-1">
+      <SiteHeader />
+      <main id="main" className="flex flex-1 flex-col">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
@@ -40,7 +37,6 @@ function Shell() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/certifications" element={<CertificationsPage />} />
-          <Route path="/engineering" element={<EngineeringPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -3,14 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects, categories, type Project } from "@/data/projects";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
@@ -32,60 +24,13 @@ export function RepoLinks({ project, className = "" }: { project: Project; class
           key={r.url}
           href={r.url}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--ink-2)] transition-colors hover:text-[var(--ink)]"
         >
           {r.label} <ArrowUpRight className="size-4" aria-hidden />
         </a>
       ))}
     </span>
-  );
-}
-
-function ProjectDialog({ project, children }: { project: Project; children: React.ReactNode }) {
-  return (
-    <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent aria-describedby={undefined}>
-        <DialogHeader>
-          <p className="text-[13px] font-medium text-[var(--muted)]">
-            {project.index} — {project.status}
-          </p>
-          <DialogTitle>{project.title}</DialogTitle>
-          <DialogDescription>{project.tagline}</DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-6">
-          <div>
-            <h4 className="text-sm font-semibold">Problem</h4>
-            <p className="mt-1.5 text-[15px] leading-relaxed text-[var(--ink-2)]">{project.problem}</p>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold">Solution</h4>
-            <p className="mt-1.5 text-[15px] leading-relaxed text-[var(--ink-2)]">{project.solution}</p>
-          </div>
-          <div className="rounded-2xl bg-[var(--elevated)] p-5">
-            <p className="text-[13px] font-medium text-[var(--muted)]">Role</p>
-            <p className="mt-1 text-[15px] font-semibold">{project.role}</p>
-            <ul className="mt-3 grid gap-1.5">
-              {project.notes.map((n) => (
-                <li key={n} className="text-sm leading-relaxed text-[var(--ink-2)]">
-                  {n}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <StackLine items={project.stack} />
-          <RepoLinks project={project} />
-          <div className="border-t border-[var(--line-soft)] pt-5">
-            <Button asChild size="sm">
-              <Link to={`/projects/${project.slug}`}>
-                Open full entry <ArrowRight aria-hidden />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </DialogContent>
-    </Dialog>
   );
 }
 
@@ -105,15 +50,11 @@ function FeaturedProject({ project }: { project: Project }) {
           </p>
           <StackLine items={project.stack} className="mt-5" />
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <ProjectDialog project={project}>
-              <Button size="sm">Quick read</Button>
-            </ProjectDialog>
-            <Link
-              to={`/projects/${project.slug}`}
-              className="inline-flex items-center gap-1 text-sm font-semibold transition-opacity hover:opacity-70"
-            >
-              Full entry <ArrowUpRight className="size-4" aria-hidden />
-            </Link>
+            <Button size="sm" asChild>
+              <Link to={`/projects/${project.slug}`}>
+                Case study <ArrowRight aria-hidden />
+              </Link>
+            </Button>
             <RepoLinks project={project} />
           </div>
         </div>
@@ -157,24 +98,16 @@ function ProjectRow({ project }: { project: Project }) {
         </div>
         <p className="mt-1.5 text-[15.5px] text-[var(--ink-2)]">{project.tagline}</p>
         <p className="mt-3 max-w-[62ch] text-[15px] leading-relaxed text-[var(--ink-2)]">
-          {project.solution.length > 180 ? project.solution.slice(0, 180) + "…" : project.solution}
+          {project.solution}
         </p>
         <StackLine items={project.stack.slice(0, 6)} className="mt-3" />
       </div>
       <div className="flex items-center gap-5 sm:flex-col sm:items-end sm:gap-2">
-        <ProjectDialog project={project}>
-          <button
-            type="button"
-            className="cursor-pointer text-sm font-semibold text-[var(--ink)] transition-opacity hover:opacity-70"
-          >
-            Quick read
-          </button>
-        </ProjectDialog>
         <Link
           to={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--ink-2)] transition-colors hover:text-[var(--ink)]"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--ink)] transition-opacity hover:opacity-70"
         >
-          Full entry <ArrowUpRight className="size-4" aria-hidden />
+          Case study <ArrowRight className="size-4" aria-hidden />
         </Link>
         <RepoLinks project={project} />
       </div>
