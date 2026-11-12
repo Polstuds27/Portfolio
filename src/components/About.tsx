@@ -33,7 +33,6 @@ export function About() {
   return (
     <section aria-labelledby="about-heading" className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-20">
       <SectionHeading
-        kicker="About"
         title="About the builder"
         lede="I'm Paul Adrianne Mojal, a backend-focused IT student who prefers working software over slide decks. I learn by shipping department tools, hackathon prototypes, and apps I actually use."
       />

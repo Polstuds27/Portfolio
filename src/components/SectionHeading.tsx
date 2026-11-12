@@ -8,7 +8,7 @@ export function SectionHeading({
   className,
   align = "left",
 }: {
-  kicker: string;
+  kicker?: string;
   title: string;
   lede?: string;
   className?: string;
@@ -16,8 +16,8 @@ export function SectionHeading({
 }) {
   return (
     <Reveal className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
-      <p className="eyebrow">{kicker}</p>
-      <h2 className="display-section mt-3 text-[32px] sm:text-[40px]">{title}</h2>
+      {kicker && <p className="eyebrow">{kicker}</p>}
+      <h2 className={cn("display-section text-[32px] sm:text-[40px]", kicker && "mt-3")}>{title}</h2>
       {lede ? (
         <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">{lede}</p>
       ) : null}
